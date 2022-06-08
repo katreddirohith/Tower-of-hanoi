@@ -1,0 +1,23 @@
+#include &lt;iostream&gt;
+using namespace std;
+int min_steps=0;
+void tower(int n, char r1,
+char r2, char r3)
+{
+if (n == 0)
+{
+return;
+}
+tower(n - 1, r1, r3, r2);
+cout &lt;&lt; &quot;Move disk &quot; &lt;&lt; n &lt;&lt; &quot; from rod &quot; &lt;&lt; r1 &lt;&lt;
+&quot; to rod &quot; &lt;&lt; r2 &lt;&lt; endl; min_steps++;
+tower(n - 1, r3, r2, r1);
+}
+int main()
+{
+cout&lt;&lt;&quot;Enter number of discs&quot;&lt;&lt;endl;
+int n; cin&gt;&gt;n;
+tower(n, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;);
+cout&lt;&lt;&quot;Minimum number of steps in this case &quot;&lt;&lt;min_steps&lt;&lt;endl;
+return 0;
+}
